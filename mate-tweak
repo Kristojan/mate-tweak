@@ -121,6 +121,15 @@ class MateTweak:
         elif schema_id == "org.mate.background":
             self.toggle_desktop_icons_sensitiveness()
 
+           # nemo file manager as desktop manager
+           if widget.get_active():
+             # Enable desktop icons
+             # Launch nemo-desktop 
+             subprocess.Popen(["nemo-desktop"])
+           else:
+             # Stop nemo-desktop 
+             subprocess.run(["pkill", "nemo-desktop"])
+
     def schema_has_key(self, schema, key):
         source = Gio.SettingsSchemaSource.get_default()
         if source.lookup(schema, True):
@@ -1627,13 +1636,14 @@ class MateTweak:
         self.builder.get_object("label_toolbar_style").set_text(_("Style:"))
         self.builder.get_object("label_toolbar_icon_size").set_text(_("Icon size:"))
 
-        # Desktop page
+        # Desktop page - nemo file manager as desktop manager 
+        # because mate desktop bugged with caja file manager
         self.init_checkbox("org.mate.background", "show-desktop-icons", "checkbox_show_icons")
-        self.init_checkbox("org.mate.caja.desktop", "computer-icon-visible", "checkbox_computer")
-        self.init_checkbox("org.mate.caja.desktop", "home-icon-visible", "checkbox_home")
-        self.init_checkbox("org.mate.caja.desktop", "network-icon-visible", "checkbox_network")
-        self.init_checkbox("org.mate.caja.desktop", "trash-icon-visible", "checkbox_trash")
-        self.init_checkbox("org.mate.caja.desktop", "volumes-visible", "checkbox_volumes")
+        self.init_checkbox("org.nemo.desktop", "computer-icon-visible", "checkbox_computer")
+        self.init_checkbox("org.nemo.desktop", "home-icon-visible", "checkbox_home")
+        self.init_checkbox("org.nemo.desktop", "network-icon-visible", "checkbox_network")
+        self.init_checkbox("org.nemo.desktop", "trash-icon-visible", "checkbox_trash")
+        self.init_checkbox("org.nemo.desktop", "volumes-visible", "checkbox_volumes")
         self.toggle_desktop_icons_sensitiveness()
 
         # interface page
