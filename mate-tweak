@@ -126,9 +126,11 @@ class MateTweak:
              # Enable desktop icons
              # Launch nemo-desktop 
              subprocess.Popen(["nemo-desktop"])
+             subprocess.Popen(["gsettings", "set", "org.nemo.desktop", "show-desktop-icons", "true"])
            else:
              # Stop nemo-desktop 
-             subprocess.run(["pkill", "nemo-desktop"])
+             subprocess.run(["nemo-desktop", 'f', '--quit'])
+             subprocess.Popen(["gsettings", "set", "org.nemo.desktop", "show-desktop-icons", "false"])
 
     def schema_has_key(self, schema, key):
         source = Gio.SettingsSchemaSource.get_default()
