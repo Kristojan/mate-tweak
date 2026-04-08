@@ -7,3 +7,6 @@ This is MATE Tweak, a fork of [mintDesktop](https://github.com/linuxmint/mintdes
 MATE Tweak needs translators!
 
   * https://www.transifex.com/projects/p/MATE/resource/mate-tweak/
+
+# Mate Tweak adaptation fork
+ Enable/disable the Nemo file manager as a desktop manager.
