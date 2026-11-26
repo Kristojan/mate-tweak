@@ -998,14 +998,14 @@ class MateTweak:
             self.set_string("org.gnome.desktop.wm.preferences", None, "button-layout", value)
 
         elif (schema == "org.mate.interface" and key == "enable-animations"):
-            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
-            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
-            self.set_bool('org.gnome.desktop.interface', None, 'enable-aniations', value)
+            self.set_bool('org.mate.panel', None, 'enable-animations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-animations', value)
+            self.set_bool('org.gnome.desktop.interface', None, 'enable-animations', value)
 
         elif (schema == "org.gnome.desktop.interface" and key == "enable-animations"):
-            self.set_bool('org.mate.panel', None, 'enable-aniations', value)
-            self.set_bool('org.mate.interface', None, 'gtk-enable-aniations', value)
-            self.set_bool('org.mate.interface', None, 'enable-aniations', value)
+            self.set_bool('org.mate.panel', None, 'enable-animations', value)
+            self.set_bool('org.mate.interface', None, 'gtk-enable-animations', value)
+            self.set_bool('org.mate.interface', None, 'enable-animations', value)
 
         elif schema == "org.mate.session.required-components" and key == "windowmanager":
             # If the window manager is being changed, replace it now!
